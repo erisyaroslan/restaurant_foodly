@@ -4,7 +4,9 @@ import 'package:restaurant_foodly/common/app_style.dart';
 import 'package:restaurant_foodly/common/background_container.dart';
 import 'package:restaurant_foodly/common/reusable_text.dart';
 import 'package:restaurant_foodly/constants/constants.dart';
+import 'package:restaurant_foodly/views/foods/widgets/additives_info.dart';
 import 'package:restaurant_foodly/views/foods/widgets/all_categories.dart';
+import 'package:restaurant_foodly/views/foods/widgets/food_info.dart';
 import 'package:restaurant_foodly/views/foods/widgets/image_uploads.dart';
 
 class AddFoods extends StatefulWidget {
@@ -17,6 +19,24 @@ class AddFoods extends StatefulWidget {
 class _AddFoodsState extends State<AddFoods> {
 
   final PageController _pageController = PageController();
+  final TextEditingController title = TextEditingController();
+  final TextEditingController description = TextEditingController();
+  final TextEditingController price = TextEditingController();
+  final TextEditingController preparation = TextEditingController();
+  final TextEditingController types = TextEditingController();
+  final TextEditingController additiveTitle = TextEditingController();
+  final TextEditingController additivePrice = TextEditingController();
+
+  @override
+  void dispose() {
+    title.dispose();
+    description.dispose();
+    price.dispose();
+    preparation.dispose();
+    types.dispose();
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,14 +92,30 @@ class _AddFoodsState extends State<AddFoods> {
                    );
                  },
                ),
-                ChooseCategories(
-                    next: (){
-                      _pageController.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeIn
-                      );
-                    }
+                FoodInfo(
+                   back: (){
+                   _pageController.previousPage(
+                       duration: const Duration(milliseconds: 500),
+                       curve: Curves.easeIn
+                   );
+                 },
+                 next: (){
+                   _pageController.nextPage(
+                       duration: const Duration(milliseconds: 500),
+                       curve: Curves.easeIn
+                   );
+                 },
+                  title: title,
+                  description: description,
+                  price: price,
+                  preparation: preparation,
+                  types: types,
                 ),
+
+                AdditivesInfo(
+                  additiveTitle: additiveTitle, 
+                  additivePrice: additivePrice,
+                )
 
 
               ],

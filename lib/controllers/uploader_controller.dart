@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields
+
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,7 +20,7 @@ class UploaderController extends GetxController {
 
   List<String> get images => _images;
 
-  set seImage(String newValue) {
+  set setImages(String newValue) {
     _images.add(newValue);
   }
 
@@ -38,26 +40,32 @@ class UploaderController extends GetxController {
 
   set setImageOneUrl(String newValue) {
     _imageOneUrl.value = newValue;
+    images.add(newValue);
   }
 
   set setImageTwoUrl(String newValue) {
     _imageTwoUrl.value = newValue;
+     images.add(newValue);
   }
 
   set setImageThreeUrl(String newValue) {
     _imageThreeUrl.value = newValue;
+     images.add(newValue);
   }
 
   set setImageFourUrl(String newValue) {
     _imageFourUrl.value = newValue;
+     images.add(newValue);
   }
 
   set setLogoUrl(String newValue) {
     _logoUrl.value = newValue;
+     images.add(newValue);
   }
 
   set setCoverUrl(String newValue) {
     _coverUrl.value = newValue;
+     images.add(newValue);
   }
 
   Future<void> pickImage(String type) async {

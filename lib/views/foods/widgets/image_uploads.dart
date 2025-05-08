@@ -50,6 +50,7 @@ class ImageUploads extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      //Image One
                       GestureDetector(
                         onTap: (){
                           controller.pickImage('one');
@@ -61,7 +62,7 @@ class ImageUploads extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(color: kGrayLight),
                           ),
-                          child: controller.imageOne == ''?
+                          child: controller.imageOneUrl == ''?
                           Center(
                             child: ReusableText(
                               text: "Upload Image",
@@ -77,19 +78,32 @@ class ImageUploads extends StatelessWidget {
                         )
                         ),
                       ),
-                      Container(
-                        height: 120,
-                        width: width/2.3,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: kGrayLight),
-                        ),
-                        child: Center(
-                          child: ReusableText(
-                            text: "Upload Image",
-                            style: appStyle(16, kDark, FontWeight.w600
-                            ),
+                      //ImageTwo
+                      GestureDetector(
+                        onTap: (){
+                          controller.pickImage('two');
+                        },
+                        child: Obx(() => Container(
+                          height: 120,
+                          width: width/2.3,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: kGrayLight),
                           ),
+                          child: controller.imageTwoUrl == ''?
+                          Center(
+                            child: ReusableText(
+                              text: "Upload Image",
+                              style: appStyle(16, kDark, FontWeight.w600
+                              ),),
+                          ):ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                              controller.imageTwoUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                        )
                         ),
                       ),
                     ],
@@ -98,34 +112,59 @@ class ImageUploads extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 120,
-                        width: width/2.3,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: kGrayLight),
-                        ),
-                        child: Center(
-                          child: ReusableText(
-                            text: "Upload Image",
-                            style: appStyle(16, kDark, FontWeight.w600
-                            ),
+                      GestureDetector(
+                        onTap: (){
+                          controller.pickImage('three');
+                        },
+                        child: Obx(() => Container(
+                          height: 120,
+                          width: width/2.3,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: kGrayLight),
                           ),
+                          child: controller.imageThreeUrl == ''?
+                          Center(
+                            child: ReusableText(
+                              text: "Upload Image",
+                              style: appStyle(16, kDark, FontWeight.w600
+                              ),),
+                          ):ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                              controller.imageThreeUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                        )
                         ),
                       ),
-                      Container(
-                        height: 120,
-                        width: width/2.3,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: kGrayLight),
-                        ),
-                        child: Center(
-                          child: ReusableText(
-                            text: "Upload Image",
-                            style: appStyle(16, kDark, FontWeight.w600
-                            ),
+
+                      GestureDetector(
+                        onTap: (){
+                          controller.pickImage('four');
+                        },
+                        child: Obx(() => Container(
+                          height: 120,
+                          width: width/2.3,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: kGrayLight),
                           ),
+                          child: controller.imageFourUrl == ''?
+                          Center(
+                            child: ReusableText(
+                              text: "Upload Image",
+                              style: appStyle(16, kDark, FontWeight.w600
+                              ),),
+                          ):ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                              controller.imageFourUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                        )
                         ),
                       ),
                     ],
@@ -148,6 +187,17 @@ class ImageUploads extends StatelessWidget {
                         btnRadius: 9,
                         onTap: () {
                           next();
+                          //if (controller.images.length > 1) {
+                          //  next();
+                          //} else {
+                          //  Get.snackbar(
+                          //    colorText: kLightWhite,
+                          //    backgroundColor: kPrimary,
+                          //    snackPosition: SnackPosition.TOP,
+                          //    "Upload required images", "Please upload at least 3 images"
+                        //  );
+                        //  }
+                          
                         },
                       ),
                     ],
