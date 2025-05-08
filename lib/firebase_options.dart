@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAJMXiOial_wc5vRBZio0H9Kdh4htL7NX8',
+    apiKey: 'AIzaSyAJMXiOial_wc5vRBZio0H9Kdh4htL7NX8', 
     appId: '1:529266323104:android:22eec9cf10970056cba3c5',
     messagingSenderId: '529266323104',
     projectId: 'foodly-flutter-app-338b9',
